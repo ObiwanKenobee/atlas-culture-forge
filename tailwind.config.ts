@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -19,11 +20,21 @@ export default {
 		},
 		extend: {
 			colors: {
+				// Base UI colors
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
+				
+				// Atlas region-adaptive colors
+				'atlas-primary': 'hsl(var(--atlas-primary))',
+				'atlas-secondary': 'hsl(var(--atlas-secondary))',
+				'atlas-accent': 'hsl(var(--atlas-accent))',
+				'atlas-muted': 'hsl(var(--atlas-muted))',
+				'atlas-surface': 'hsl(var(--atlas-surface))',
+
+				// Standard colors
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
 					foreground: 'hsl(var(--primary-foreground))'
@@ -84,11 +95,33 @@ export default {
 					to: {
 						height: '0'
 					}
-				}
+				},
+				'fade-in': {
+          '0%': {
+            opacity: '0',
+            transform: 'translateY(10px)'
+          },
+          '100%': {
+            opacity: '1',
+            transform: 'translateY(0)'
+          }
+        },
+        'region-transition': {
+          '0%': {
+            opacity: '0.8',
+            transform: 'scale(0.98)'
+          },
+          '100%': {
+            opacity: '1',
+            transform: 'scale(1)'
+          }
+        }
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'fade-in': 'fade-in 0.4s ease-out',
+				'region-transition': 'region-transition 0.6s ease-out'
 			}
 		}
 	},

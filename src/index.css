@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -34,21 +35,92 @@
 
     --radius: 0.5rem;
 
+    /* Atlas Region-Adaptive Variables - Default (Global) */
+    --atlas-primary: 220 60% 50%;
+    --atlas-secondary: 210 40% 96.1%;
+    --atlas-accent: 262 83% 58%;
+    --atlas-muted: 220 14% 96%;
+    --atlas-surface: 0 0% 100%;
+
+    /* Sidebar Variables */
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  /* East Asia Theme */
+  .theme-east-asia {
+    --atlas-primary: 0 70% 50%;
+    --atlas-secondary: 34 100% 92%;
+    --atlas-accent: 27 96% 61%;
+    --atlas-muted: 0 15% 95%;
+    --atlas-surface: 30 30% 99%;
+    --radius: 0.25rem;
+  }
+
+  /* South Asia Theme */
+  .theme-south-asia {
+    --atlas-primary: 271 76% 53%;
+    --atlas-secondary: 186 56% 92%;
+    --atlas-accent: 38 92% 50%;
+    --atlas-muted: 271 20% 96%;
+    --atlas-surface: 240 20% 99%;
+    --radius: 1rem;
+  }
+
+  /* Africa Theme */
+  .theme-africa {
+    --atlas-primary: 32 98% 44%;
+    --atlas-secondary: 16 79% 94%;
+    --atlas-accent: 124 55% 24%;
+    --atlas-muted: 32 20% 95%;
+    --atlas-surface: 35 30% 98%;
+    --radius: 0.75rem;
+  }
+
+  /* Europe Theme */
+  .theme-europe {
+    --atlas-primary: 217 71% 53%;
+    --atlas-secondary: 210 40% 96.1%;
+    --atlas-accent: 262 83% 58%;
+    --atlas-muted: 217 14% 96%;
+    --atlas-surface: 210 20% 99%;
+    --radius: 0.5rem;
+  }
+
+  /* Latin America Theme */
+  .theme-latin-america {
+    --atlas-primary: 142 76% 36%;
+    --atlas-secondary: 58 83% 94%;
+    --atlas-accent: 338 85% 55%;
+    --atlas-muted: 142 20% 95%;
+    --atlas-surface: 58 30% 99%;
+    --radius: 0.625rem;
+  }
+
+  /* North America Theme */
+  .theme-north-america {
+    --atlas-primary: 210 100% 45%;
+    --atlas-secondary: 15 100% 95%;
+    --atlas-accent: 354 80% 57%;
+    --atlas-muted: 210 20% 95%;
+    --atlas-surface: 210 30% 98%;
+    --radius: 0.375rem;
+  }
+
+  /* Oceania Theme */
+  .theme-oceania {
+    --atlas-primary: 195 80% 50%;
+    --atlas-secondary: 180 100% 94%;
+    --atlas-accent: 340 82% 52%;
+    --atlas-muted: 195 20% 95%;
+    --atlas-surface: 180 30% 98%;
+    --radius: 0.5rem;
   }
 
   .dark {
@@ -79,14 +151,6 @@
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 }
 
@@ -97,5 +161,28 @@
 
   body {
     @apply bg-background text-foreground;
+    transition: background-color 0.5s ease, color 0.5s ease;
   }
+
+  /* Typography adjustments based on region */
+  .theme-east-asia h1, .theme-east-asia h2, .theme-east-asia h3 {
+    @apply tracking-tight leading-tight;
+  }
+
+  .theme-africa h1, .theme-africa h2, .theme-africa h3 {
+    @apply tracking-wide leading-relaxed;
+  }
+
+  .theme-south-asia .prose {
+    @apply space-y-6;
+  }
+
+  .theme-latin-america .prose {
+    @apply space-y-4;
+  }
+}
+
+/* Animated background transitions */
+.region-transition-container {
+  transition: all 0.5s ease-out;
 }
